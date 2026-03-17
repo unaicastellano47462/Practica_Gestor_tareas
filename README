@@ -1,0 +1,23 @@
+Lo primero que he hecho ha sido crear la base de datos desde phpMyAdmin. 
+He preparado una base de datos llamada gestortareas con una tabla principal para almacenar toda la información.
+
+He organizado el código fuente en distintas carpetas usando el metodo MVC:
+
+Modelo: Aquí se encuentra la clase Tarea, que es la "plantilla" que define los atributos de cada tarea (ID, título, descripción, prioridad, estado y fecha).
+Vista: Contiene la clase MenuTareas, que se encarga de mostrar los mensajes por consola y recoger lo que el usuario escribe.
+Controlador: Aquí está TareasController, que es el intermediario. Se encarga de coger los datos de la Vista y mandarlos a la base de datos (y viceversa).
+Utilidades: En esta carpeta he agrupado las herramientas de soporte, como la lectura de datos por teclado, la clase para conectar con MySQL y el servicio que se comunica con la IA.
+
+El Menú y sus Acciones
+Al ejecutar el Main, arranca el menú. Este menú es el panel de control y permite realizar las siguientes acciones:
+Crear tarea: Pide los datos al usuario (momento en el que interviene la IA) y la guarda.
+Borrar y Modificar: Permite eliminar una tarea por su ID o cambiarle el título y la prioridad a una ya existente.
+Listar y Buscar: Tiene opciones para ver todas las tareas de golpe o filtrarlas de forma específica (por título, por ID, por prioridad, por estado o por fecha de creación).
+
+Conexión a la Base de Datos
+Para comunicar Java con phpMyAdmin, he utilizado el conector JDBC de MySQL. La lógica está concentrada en la clase DBConnection, donde he configurado el acceso al servidor (localhost:3306), el usuario y la contraseña.
+El programa abre un "puente" con la base de datos que permite al controlador enviar sentencias SQL (INSERT, SELECT, UPDATE y DELETE) de forma automática
+
+Integración de la Inteligencia Artificial (Google Gemini)
+Por último, para cumplir con los requisitos de la práctica, he integrado la API gratuita de Google Gemini. Lo he hecho de la siguiente manera, explicada por encima:
+En la clase ServicioIA he programado una petición HTTP. Cuando el usuario está creando una tarea y escribe la descripción, el programa hace una pausa y envía esa descripción a los servidores de Google. Le pasamos una instrucción (un prompt) diciéndole a la IA que actúe como un gestor de proyectos y evalúe la urgencia del texto, devolviendo únicamente un número del 1 al 5.
