@@ -1,0 +1,9 @@
+Características de la IA: Google Gemini
+
+Para esta práctica he elegido el modelo Gemini 2.5 Flash de Google. Estas son las razones principales:
+
+Es gratuita: He usado este modelo porque Google ofrece una API Key sin coste, lo que permite probar el programa todas las veces que haga falta sin tener que pagar suscripciones.
+Es muy rápida: Al ser la versión "Flash", la respuesta llega casi al instante. Esto es importante para que el programa de Java no se quede bloqueado mucho tiempo esperando la prioridad.
+Fácil de conectar:** No he necesitado librerías externas complicadas. He podido conectar la IA directamente usando el sistema de peticiones HTTP que ya viene con Java.
+Análisis de texto:** La IA entiende el contexto de la descripción. Por ejemplo, si pongo "examen mañana", detecta que es urgente y sugiere una prioridad alta (4 o 5) de forma automática.
+Seguridad ante errores:** En el código he programado que, si la IA falla por falta de internet o por exceso de peticiones, el programa asigne un "3" por defecto para que el usuario pueda seguir creando su tarea sin problemas.
